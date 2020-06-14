@@ -95,14 +95,15 @@ for file_name in files:
         print(new_name)
         os.renames(file_name, new_name)
 
-search_word = input("Search character, word or phrase? :")
-
-#second round will look for specific search word
-files = os.listdir(os.getcwd())
-for file_name in files:
-    #check if file_name is a valid file
-    valid_file = check_valid_musicfile(file_name)
-    if search_word in file_name and valid_file:
-        new_name = clean_filename(file_name, search_word)
-        print(new_name)
-        os.renames(file_name, new_name)
+search_word = " "
+while search_word != "":
+    search_word = input("Search character, word or phrase? (none to exit) :")
+    #second round will look for specific search word
+    files = os.listdir(os.getcwd())
+    for file_name in files:
+        #check if file_name is a valid file
+        valid_file = check_valid_musicfile(file_name)
+        if search_word in file_name and valid_file:
+            new_name = clean_filename(file_name, search_word)
+            print(new_name)
+            os.renames(file_name, new_name)
